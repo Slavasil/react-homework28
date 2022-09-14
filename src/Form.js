@@ -56,8 +56,8 @@ function Form(props) {
   let canSubmit = state.name.trim() != '' && state.price.trim() != '';
   return (
     <div className="form">
-      <input value={state.name} onChange={handleNameInputChange}/>
-      <input type="number" value={state.price} onChange={handlePriceInputChange}/>
+      <input value={state.name} onChange={handleNameInputChange} placeholder="Service"/>
+      <input type="number" value={state.price} onChange={handlePriceInputChange} placeholder="Price"/>
       <button disabled={!canSubmit} onClick={handleSubmitClick}>{globalState.editedItemId == null ? 'Add' : 'Save'}</button>
     </div>
   );

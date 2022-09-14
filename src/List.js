@@ -15,8 +15,8 @@ function List() {
   return (<ol>
     {items.map(item => {
       return (<div key={item.id}>
-        <span>{item.name}&nbsp;</span>
-        <span>{item.price}</span>
+        <span className="list-row-name">{item.name}&nbsp;</span>
+        <span className="list-row-price">{item.price}</span>
         <button disabled={editedItemId == item.id} onClick={() => handleDelete(item.id)}>Delete</button>
         <button disabled={editedItemId == item.id} onClick={() => handleEdit(item.id)}>Edit</button>
       </div>);

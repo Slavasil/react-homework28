@@ -1,6 +1,35 @@
+#root {
+  width: 600px;
+  margin: 0 auto;
+}
+ol {
+  padding: 0;
+}
 ol > div {
   border-radius: 3px;
   border: 2px solid #999;
   margin: 3px;
   padding: 6px;
+  display: flex;
+}
+ol .list-row-name {
+  flex: 0.6;
+}
+ol .list-row-price {
+  flex: 0.4;
+}
+ol span {
+  flex-grow: 1;
+}
+ol button {
+  appearance: none;
+  border: none;
+  border-left: 2px solid #999;
+  border-right: 2px solid #999;
+  background: transparent;
+  margin: -6px 0 -6px 0;
+}
+ol button:last-child {
+  border: none;
+  margin-right: -6px;
 }
