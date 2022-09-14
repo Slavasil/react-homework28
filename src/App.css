@@ -1,0 +1,6 @@
+ol > div {
+  border-radius: 3px;
+  border: 2px solid #999;
+  margin: 3px;
+  padding: 6px;
+}
