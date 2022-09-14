@@ -1,6 +1,6 @@
 import {useRef, useState, useEffect} from 'react';
 import {useSelector, useDispatch, useStore} from 'react-redux';
-import { ADD_ITEM, SAVE_ITEM } from './actions/actionTypes.js';
+import { ADD_ITEM, SAVE_ITEM, CANCEL_EDITING_ITEM } from './actions/actionTypes.js';
 
 function Form(props) {
   const dispatch = useDispatch();
@@ -46,6 +46,11 @@ function Form(props) {
     setState(state => ({...state, name: '', price: ''}));
   };
 
+  const handleCancelClick = () => {
+    dispatch({type: CANCEL_EDITING_ITEM});
+    setState(state => ({...state, name: '', price: ''}));
+  };
+
   const handleNameInputChange = e => {
     setState({...state, name: e.target.value});
   };
@@ -59,6 +64,7 @@ function Form(props) {
       <input value={state.name} onChange={handleNameInputChange} placeholder="Service"/>
       <input type="number" value={state.price} onChange={handlePriceInputChange} placeholder="Price"/>
       <button disabled={!canSubmit} onClick={handleSubmitClick}>{globalState.editedItemId == null ? 'Add' : 'Save'}</button>
+      {editedItem != null && <button onClick={handleCancelClick}>Cancel</button>}
     </div>
   );
 }

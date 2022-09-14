@@ -1,5 +1,5 @@
 import {nanoid} from 'nanoid';
-import { ADD_ITEM, SAVE_ITEM, EDIT_ITEM, DELETE_ITEM } from './actions/actionTypes.js';
+import { ADD_ITEM, SAVE_ITEM, EDIT_ITEM, DELETE_ITEM, CANCEL_EDITING_ITEM } from './actions/actionTypes.js';
 
 const initialState = {
   items: [],
@@ -32,6 +32,9 @@ function reducer(state = initialState, action) {
         }
       });
       return {...state, items: newItems, editedItemId: null};
+    }
+    case CANCEL_EDITING_ITEM: {
+      return {...state, editedItemId: null};
     }
     case DELETE_ITEM: {
       let {id} = action.payload;
