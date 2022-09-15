@@ -1,8 +1,9 @@
 import {nanoid} from 'nanoid';
-import { ADD_ITEM, SAVE_ITEM, EDIT_ITEM, DELETE_ITEM, CANCEL_EDITING_ITEM } from './actions/actionTypes.js';
+import { ADD_ITEM, SAVE_ITEM, EDIT_ITEM, DELETE_ITEM, CANCEL_EDITING_ITEM, SET_FILTER } from './actions/actionTypes.js';
 
 const initialState = {
   items: [],
+  listFilter: '',
   editedItemId: null
 };
 
@@ -41,6 +42,8 @@ function reducer(state = initialState, action) {
       let newItems = state.items.filter((item) => item.id != id);
       return {...state, items: newItems};
     }
+    case SET_FILTER:
+      return {...state, listFilter: action.payload.filter};
   }
   return state;
 }
